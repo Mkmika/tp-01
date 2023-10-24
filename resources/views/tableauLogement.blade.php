@@ -20,7 +20,7 @@
 <body>
     <h2> Liste de logements disponibles pour les séjours</h2><br><br>
     <table class="bg-red-200">
-        <tr>
+        <tr>updateListeLogementupdateListeLogement
             <th>Code du logement</th>
             <th>Nom du logement</th>
             <th>Capacite du logement</th>
@@ -40,7 +40,7 @@
             <td>{{$logement->photo}}</td>
             <td>{{$logement->disponibilite}}</td>
             <td>
-                <a href="{{route('update',['id'=> $logement->id])}}">Modifier</a>
+                <a href="{{route('getUpdateLogement',['id'=> $logement->id])}}">Modifier</a>
                
             </td>
             <td>

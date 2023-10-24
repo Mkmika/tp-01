@@ -92,7 +92,7 @@ class LogementController extends Controller
 
     }
     public function getUpdateLogement ($id){
-        $logements = Logement::find($id);
-        return view ('updateLogement',compact('logements'));
+        $logement = Logement::find($id);
+        return view ('updateLogement',compact('logement'));
     }
 }

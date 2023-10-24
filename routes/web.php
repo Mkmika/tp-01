@@ -24,7 +24,7 @@ Route::get('/listeLogement',[LogementController::class,'liste'])->name('liste');
 
 Route::post('/create/store',[LogementController::class,'store'])->name('store');
 
-Route::get('/updateListeLogement',[LogementController::class,'getUpdateLogement'])->name('getUpdateLogement');
+Route::get('/updateListeLogement/{id}',[LogementController::class,'getUpdateLogement'])->name('getUpdateLogement');
 
 Route::post('/update/{id}', [LogementController::class,'update'])->name('update');
 

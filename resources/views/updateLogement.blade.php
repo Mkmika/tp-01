@@ -12,33 +12,33 @@
         @csrf
         <div>
             <label for="">Code du Logement</label>
-            <input type="text" name="code" id="" value="{{$code}}">
+            <input type="text" name="code" id="" value="{{$logement->code}}">
         </div>
         <div>
             <label for="">Nom du Logement</label>
-            <input type="text" name="nomLogement" id="" value="{{$nomLogement}}">
+            <input type="text" name="nomLogement" id="" value="{{$logement->nomLogement}}">
         </div>
         <div>
             <label for="">Capacite du Logement</label>
-            <input type="text" name="capacite" id="" value="{{$capacite}}">
+            <input type="text" name="capacite" id="" value="{{$logement->capacite}}">
         </div>
         <div>
             <label for="">Type du Logement</label>
-            <input type="text" name="type" id="" value="{{$type}}">
+            <input type="text" name="type" id="" value="{{$logement->type}}">
         </div>
         <div>
             <label for="">Lieu du Logement</label>
-            <input type="text" name="lieu" id="" value="{{$lieu}}">
+            <input type="text" name="lieu" id="" value="{{$logement->lieu}}">
         </div>
         <div>
             <label for="">Photo du Logement</label>
-            <input type="text" name="photo" id="" value="{{$photo}}">
+            <input type="text" name="photo" id="" value="{{$logement->photo}}">
         </div>
         <div>
             <label for=""> Disponibilite du logement:</label>
-            <input type="radio" name="disponibilite" id="disponibilite_oui" value="{{$disponibilite_oui}}">
+            <input type="radio" name="disponibilite" id="disponibilite_oui" value="{{$logement->disponibilite_oui}}">
             <label for="">Oui</label>
-            <input type="radio" name="disponibilite" id="disponibilite_non" value="{{$disponibilite_non}}">
+            <input type="radio" name="disponibilite" id="disponibilite_non" value="{{$logement->disponibilite_non}}">
             <label for="">Non</label>             
         </div>
         <div>
