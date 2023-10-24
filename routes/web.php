@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\LogementController;
+use App\Models\Logement;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,9 +24,8 @@ Route::get('/listeLogement',[LogementController::class,'liste'])->name('liste');
 
 Route::post('/create/store',[LogementController::class,'store'])->name('store');
 
-Route::get('/update/{id}', function(){
-    return view('updateLogement');
-});
+Route::get('/updateListeLogement',[LogementController::class,'getUpdateLogement'])->name('getUpdateLogement');
+
 Route::post('/update/{id}', [LogementController::class,'update'])->name('update');
 
 Route::delete('/delete/{id}', [LogementController::class,'delete'])->name('delete');

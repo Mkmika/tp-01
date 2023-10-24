@@ -46,8 +46,8 @@
             <td>
                 <form action="{{route('delete',['id'=> $logement->id])}}" method="post">
                     @csrf
-                    {{--@method('post')--}}
-                    <button type="reset">Supprimer</button>
+                    @method('delete')
+                    <button type="submit">Supprimer</button>
                 </form>
             </td>
         </tr>

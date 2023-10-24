@@ -91,4 +91,8 @@ class LogementController extends Controller
         return redirect('listeLogement');
 
     }
+    public function getUpdateLogement ($id){
+        $logements = Logement::find($id);
+        return view ('updateLogement',compact('logements'));
+    }
 }
