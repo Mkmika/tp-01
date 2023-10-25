@@ -39,9 +39,9 @@
             </div>
             <div>
                 <label for=""> Disponibilite du logement:</label>
-                <input type="radio" name="disponibilite" id="disponibilite_oui">
+                <input type="radio" name="disponibilite" id="disponibilite_oui" value="Oui">
                 <label for="">Oui</label>
-                <input type="radio" name="disponibilite" id="disponibilite_non">
+                <input type="radio" name="disponibilite" id="disponibilite_non" value="Non">
                 <label for="">Non</label>
             </div>
             <div>

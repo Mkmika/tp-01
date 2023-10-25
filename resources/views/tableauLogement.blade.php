@@ -20,7 +20,7 @@
 <body>
     <h2> Liste de logements disponibles pour les séjours</h2><br><br>
     <table class="bg-red-200">
-        <tr>updateListeLogementupdateListeLogement
+        <tr>
             <th>Code du logement</th>
             <th>Nom du logement</th>
             <th>Capacite du logement</th>
@@ -40,16 +40,17 @@
             <td>{{$logement->photo}}</td>
             <td>{{$logement->disponibilite}}</td>
             <td>
+                <!-- Code pour modifier  -->
                 <a href="{{route('getUpdateLogement',['id'=> $logement->id])}}">Modifier</a>
-               
-            </td>
-            <td>
+                <!-- Code pour supprimer -->
                 <form action="{{route('delete',['id'=> $logement->id])}}" method="post">
                     @csrf
                     @method('delete')
                     <button type="submit">Supprimer</button>
                 </form>
+               
             </td>
+           
         </tr>
 
         @endforeach
