@@ -67,7 +67,7 @@ class SejourController extends Controller
     
     
     
-    public function delete($id){
+    public function deleteSejour($id){
         $sejours = Sejour::find($id);
         $sejours -> delete();
         return redirect('listeSejour');

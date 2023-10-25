@@ -23,7 +23,6 @@ Route::get('/', function () {
 // LOGEMENT
 
 Route::get('/formulaire',[LogementController::class,'show'])->name('show');
-
 Route::get('/listeLogement',[LogementController::class,'liste'])->name('liste');
 
 Route::post('/create/store',[LogementController::class,'store'])->name('store');
@@ -34,6 +33,8 @@ Route::post('/update/{id}', [LogementController::class,'update'])->name('update'
 
 Route::delete('/delete/{id}', [LogementController::class,'delete'])->name('delete');
 
+/* Route::post('/savePhoto',[LogementController::class,'savePhoto'])->name('savePhoto'); */
+
 // SEJOUR
 
 Route::get('/formSejour',[SejourController::class,'showSejour'])->name('showSejour');
@@ -41,5 +42,5 @@ Route::get('/listeSejour',[SejourController::class,'listSejour'])->name('listSej
 Route::post('/create/storeSejour',[SejourController ::class,'storeSejour'])->name('storeSejour');
 Route::get('/editSejour/{id}',[SejourController::class,'editSejour'])->name('editSejour');
 Route::post('/updateS/{id}', [SejourController::class,'updateS'])->name('updateS');
-Route::delete('/delete/{id}', [SejourController::class,'delete'])->name('delete');
+Route::delete('/deleteSejour/{id}', [SejourController::class,'deleteSejour'])->name('deleteSejour');
 

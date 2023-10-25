@@ -8,17 +8,19 @@ use Illuminate\Http\Request;
 class LogementController extends Controller
 {
     //
-    public function show(){
+    public function show()
+    {
         return view('formulaireLogement');
     }
 
-    public function liste(){
+    public function liste()
+    {
         $logements = Logement::all();
-        return view('tableauLogement',compact('logements'));
-
+        return view('tableauLogement', compact('logements'));
     }
 
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         $logements = Logement::all();
         Logement::create([
             'code' => $request->input('code'),
@@ -29,71 +31,87 @@ class LogementController extends Controller
             'photo' => $request->input('photo'),
             'disponibilite' => $request->input('disponibilite'),
         ]);
-        return redirect('listeLogement');
+        
+        $input = $request->all();
 
+        if ($request->hasfile('photo')) {
+            $file = $request->file('photo');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extention;
+            $file->move('upload/logements/', $filename);
+            $input['photo'] = $filename;
+        };
+        Logement::create([
+            'code' => $input['code'],
+            'nomLogement' => $input['nomLogement'],
+            'capacite' => $input['capacite'],
+            'type' => $input['type'],
+            'lieu' => $input['lieu'],
+            'photo' => $input['photo'],
+            'disponibilite' => $input['disponibilite'],
+        ]);
+        return redirect('listeLogement');
     }
 
     public function edit($id)
     {
         $logements = Logement::find($id);
 
-            $code = $logements->code;
-            $nomLogement = $logements->nomLogement;
-            $capacite = $logements->capacite;
-            $type = $logements->type;
-            $lieu = $logements->lieu;
-            $photo = $logements->photo;
-            $disponibilite = $logements->disponibilite;
+        $code = $logements->code;
+        $nomLogement = $logements->nomLogement;
+        $capacite = $logements->capacite;
+        $type = $logements->type;
+        $lieu = $logements->lieu;
+        $photo = $logements->photo;
+        $disponibilite = $logements->disponibilite;
 
-        return view('updateLogement', compact('code','nomLogement', 'capacite', 'type', 'lieu', 'photo', 'disponibilite',));
+        return view('updateLogement', compact('code', 'nomLogement', 'capacite', 'type', 'lieu', 'photo', 'disponibilite',));
     }
     public function update(Request $request, $id)
     {
         $logements = Logement::find($id);
-        if (null !== ($request->input('code')))
-        {
+        if (null !== ($request->input('code'))) {
             $logements->code = $request->input('code');
         }
-        if (null !== ($request->input('nomLogement')))
-        {
+        if (null !== ($request->input('nomLogement'))) {
             $logements->nomLogement = $request->input('nomLogement');
         }
-        if (null !== ($request->input('capacite')))
-        {
+        if (null !== ($request->input('capacite'))) {
             $logements->capacite = $request->input('capacite');
         }
-        if (null !== ($request->input('type')))
-        {
+        if (null !== ($request->input('type'))) {
             $logements->type = $request->input('type');
         }
-        if (null !== ($request->input('lieu')))
-        {
+        if (null !== ($request->input('lieu'))) {
             $logements->lieu = $request->input('lieu');
         }
-        if (null !== ($request->input('photo')))
-        {
+        if (null !== ($request->input('photo'))) {
             $logements->photo = $request->input('photo');
         }
-        if (null !== ($request->input('disponibilite')))
-        {
+        if (null !== ($request->input('disponibilite'))) {
             $logements->disponibilite = $request->input('disponibilite');
         }
         // Sauvegarde
         $logements->save();
         return redirect('listeLogement');
     }
-    
-    
-    
-    public function delete($id){
-        $logements = Logement::find($id);
-        $logements -> delete();
-        return redirect('listeLogement');
 
+
+
+    public function delete($id)
+    {
+        $logements = Logement::find($id);
+        $logements->delete();
+        return redirect('listeLogement');
     }
-    
-    public function getUpdateLogement ($id){
+
+    public function getUpdateLogement($id)
+    {
         $logement = Logement::find($id);
-        return view ('updateLogement',compact('logement'));
+        return view('updateLogement', compact('logement'));
     }
+
+    //Enregistrement de photo
+
+
 }

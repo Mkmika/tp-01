@@ -40,7 +40,7 @@
                 <!-- Code pour modifier  -->
                 <a href="{{route('editSejour',['id'=> $sejour->id])}}">Modifier</a>
                 <!-- Code pour supprimer -->
-                <form action="{{route('delete',['id'=> $sejour->id])}}" method="post">
+                <form action="{{route('deleteSejour',['id'=> $sejour->id])}}" method="post">
                     @csrf
                     @method('delete')
                     <button type="submit">Supprimer</button>
@@ -51,6 +51,9 @@
 
         @endforeach
     </table>
+    {{ $sejours->links() }}
+
+
 
 </body>
 
